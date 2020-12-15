@@ -1,10 +1,9 @@
-FROM lx70716/cmu-15213
+FROM zhaoyu/cmu15213:1.0
 
 WORKDIR /usr/src/app
 
-COPY sources.list .
-
-RUN echo "export PS1='$ '" >> ~/.bashrc
-RUN rm /etc/apt/sources.list && mv ./sources.list /etc/apt/sources.list 
 RUN apt-get update
+
+RUN apt install -y flex bison
+# RUN apt install -y tcl tcl-dev tk tk-dev
 
